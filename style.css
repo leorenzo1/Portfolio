@@ -38,13 +38,12 @@ body{
 .blob{
     position: fixed;
     border-radius: 50%;
-    filter: blur(90px);
     z-index: -1;
-    opacity: 0.55;
+    pointer-events: none;
 }
-.blob-1{ width: 45rem; height: 45rem; background: #1fa65a; top: -10rem; left: -10rem; }
-.blob-2{ width: 38rem; height: 38rem; background: #3ddc84; bottom: 5rem; right: -8rem; opacity: 0.35; }
-.blob-3{ width: 30rem; height: 30rem; background: #0e6b3a; top: 45%; left: 35%; opacity: 0.4; }
+.blob-1{ width: 70rem; height: 70rem; top: -25rem; left: -25rem; background: radial-gradient(circle, rgba(31, 166, 90, 0.55) 0%, transparent 70%); }
+.blob-2{ width: 60rem; height: 60rem; bottom: -15rem; right: -20rem; background: radial-gradient(circle, rgba(61, 220, 132, 0.35) 0%, transparent 70%); }
+.blob-3{ width: 50rem; height: 50rem; top: 40%; left: 30%; background: radial-gradient(circle, rgba(14, 107, 58, 0.45) 0%, transparent 70%); }
 
 /* reusable glass look */
 .glass{
@@ -252,9 +251,12 @@ section:not(.home){
     border-radius: 2.4rem;
     text-align: center;
     transition: 0.35s ease;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 .card:hover{
-    transform: translateY(-8px);
+    transform: translateY(-8px) translateZ(0);
     border-color: rgba(61, 220, 132, 0.5);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(61, 220, 132, 0.2);
 }
@@ -332,4 +334,151 @@ footer{
     margin-top: 1.5rem;
     margin-bottom: 0 !important;
     font-size: 1.4rem !important;
+}
+
+/* services: 4 cards fit in one row on wide screens */
+#services .card{
+    flex: 1 1 22rem;
+    max-width: 25rem;
+}
+
+/* HIRE ME MODAL */
+.modal{
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 200;
+}
+.modal.open{ display: flex; }
+
+.modal-box{
+    position: relative;
+    width: min(52rem, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 4rem 3.5rem;
+    border-radius: 3rem;
+    background: rgba(15, 30, 22, 0.7);
+}
+.modal-box h2{ font-size: 3.2rem; margin-bottom: 0.5rem; }
+.modal-sub{ font-size: 1.4rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+.modal-close{
+    position: absolute;
+    top: 1.8rem;
+    right: 2rem;
+    background: transparent;
+    color: var(--muted);
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.modal-close:hover{ color: var(--green); }
+
+#hire-form{ display: flex; flex-direction: column; gap: 1.4rem; }
+
+#hire-form input,
+#hire-form select,
+#hire-form textarea{
+    width: 100%;
+    padding: 1.3rem 1.8rem;
+    font-size: 1.5rem;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.4rem;
+    transition: 0.3s ease;
+    resize: vertical;
+}
+#hire-form select option{ background: #0b1a12; color: var(--text); }
+#hire-form input:focus,
+#hire-form select:focus,
+#hire-form textarea:focus{
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px var(--green-soft);
+}
+#hire-form ::placeholder{ color: #7d968a; }
+
+#hire-form .btn{ align-self: flex-start; }
+
+.alt-link{
+    font-size: 1.3rem;
+    color: var(--muted);
+    transition: 0.3s ease;
+}
+.alt-link:hover{ color: var(--green); }
+
+/* SKILLS + PROJECTS */
+.chips{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+.chips span{
+    font-size: 1.3rem;
+    color: var(--text);
+    padding: 0.5rem 1.4rem;
+    border-radius: 3rem;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid var(--glass-border);
+}
+.chips span.status{
+    color: var(--green);
+    background: var(--green-soft);
+    border-color: rgba(61, 220, 132, 0.4);
+}
+
+#skills .card{
+    flex: 1 1 24rem;
+    max-width: 30rem;
+}
+
+#projects .card{
+    flex: 1 1 30rem;
+    max-width: 38rem;
+}
+.project-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.project-card .chips{ margin-top: 1.8rem; }
+.project-links{ margin-top: 2.4rem; }
+
+.btn-sm{
+    padding: 0.8rem 2.2rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+}
+
+/* HERO BUTTONS + CV DOWNLOAD */
+.hero-btns{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.btn-outline{
+    background: var(--glass);
+    color: var(--green);
+    border: 1px solid rgba(61, 220, 132, 0.5);
+    box-shadow: none;
+}
+.btn-outline i{ margin-right: 0.6rem; }
+.btn-outline:hover{
+    background: var(--green-soft);
+    box-shadow: 0 0 25px rgba(61, 220, 132, 0.35);
+}
+
+.card .school{
+    color: var(--green);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
 }

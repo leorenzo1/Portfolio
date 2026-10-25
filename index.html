@@ -20,7 +20,7 @@
             <a href="#services">Services</a>
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
-            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
             <a href="#certificates">Certificates</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -36,14 +36,17 @@
             <p class="eyebrow"><i class="fa-solid fa-circle"></i> Open for freelance &amp; remote work</p>
             <h1>Hi, It's <span>Renz</span></h1>
             <h3 class="typing-text">I'm a <span id="typing"></span><i class="cursor"></i></h3>
-            <p>I'm Leorenzo Guiral, a 2nd-year BSIT student from the Philippines. I like building small, useful web apps and making sense of data. Right now I'm looking for freelance and remote work where I can keep learning while delivering something useful.</p>
+            <p>I'm Leorenzo Guiral, a 2nd-year BSIT student from the Philippines. I build small, useful web apps, make sense of data, and also edit videos and produce music. I'm open to freelance and remote work where I can keep learning while delivering something useful.</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/leorenzo-guiral/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/leorenzo1" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.facebook.com/renziie312/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/r3nziie/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
-            <a href="#contact" class="btn">Hire me</a>
+            <div class="hero-btns">
+                <a href="#" class="btn hire-btn">Hire me</a>
+                <a href="Leorenzo_Guiral_Resume.pdf" download="Leorenzo Guiral Resume.pdf" class="btn btn-outline"><i class="fa-solid fa-download"></i> Download CV</a>
+            </div>
         </div>
     </section>
 
@@ -65,15 +68,51 @@
                 <h4>Video Editing</h4>
                 <p>Clean, simple edits for your content.</p>
             </div>
+            <div class="card glass">
+                <i class="fa-solid fa-music"></i>
+                <h4>Music Production</h4>
+                <p>Producing original tracks and beats.</p>
+            </div>
         </div>
     </section>
 
     <section id="skills">
         <h2 class="heading">My <span>Skills</span></h2>
         <div class="cards">
-            <div class="card glass placeholder">
-                <i class="fa-solid fa-pen"></i>
-                <p>Add your skills here (languages, tools, frameworks).</p>
+            <div class="card glass skill-card">
+                <i class="fa-solid fa-code"></i>
+                <h4>Web</h4>
+                <div class="chips">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Flask</span>
+                </div>
+            </div>
+            <div class="card glass skill-card">
+                <i class="fa-solid fa-chart-column"></i>
+                <h4>Data</h4>
+                <div class="chips">
+                    <span>Excel</span><span>Formulas</span><span>Pivot Tables</span><span>Dashboards</span><span>Data Cleaning</span>
+                </div>
+            </div>
+            <div class="card glass skill-card">
+                <i class="fa-solid fa-pen-ruler"></i>
+                <h4>Design</h4>
+                <div class="chips">
+                    <span>Figma</span><span>Canva</span><span>Adobe Products</span>
+                </div>
+            </div>
+            <div class="card glass skill-card">
+                <i class="fa-solid fa-clapperboard"></i>
+                <h4>Video &amp; Music</h4>
+                <div class="chips">
+                    <span>DaVinci Resolve</span><span>Reaper</span>
+                </div>
+            </div>
+            <div class="card glass skill-card">
+                <i class="fa-brands fa-github"></i>
+                <h4>Tools</h4>
+                <div class="chips">
+                    <span>Git</span><span>GitHub</span>
+                </div>
             </div>
         </div>
     </section>
@@ -84,17 +123,35 @@
             <div class="card glass">
                 <i class="fa-solid fa-graduation-cap"></i>
                 <h4>Bachelor of Science in Information Technology</h4>
+                <p class="school">Asia Technological School of Science and Arts</p>
                 <p>Currently 2nd year</p>
             </div>
         </div>
     </section>
 
-    <section id="experience">
-        <h2 class="heading"><span>Experience</span></h2>
+    <section id="projects">
+        <h2 class="heading">My <span>Projects</span></h2>
         <div class="cards">
-            <div class="card glass placeholder">
-                <i class="fa-solid fa-pen"></i>
-                <p>Add your projects or work experience here.</p>
+            <div class="card glass project-card">
+                <i class="fa-solid fa-utensils"></i>
+                <h4>Asiatech Canteen</h4>
+                <p>A school project that lets students order food through an app instead of lining up at the canteen, so they spend less of their break waiting and more of it eating.</p>
+                <div class="chips"><span>Flask</span><span>Python</span><span>School Project</span></div>
+                <div class="project-links">
+                    <a href="https://renziie.pythonanywhere.com" target="_blank" rel="noopener" class="btn btn-sm">Live demo</a>
+                </div>
+            </div>
+            <div class="card glass project-card">
+                <i class="fa-solid fa-guitar"></i>
+                <h4>ChordApp</h4>
+                <p>A chord and music sheet app built for our church. It stores editable chord sheets and includes tools musicians need, such as transposing, a chord guide and conversion to Nashville numbers.</p>
+                <div class="chips"><span class="status">In progress</span><span>Music</span><span>Church</span></div>
+            </div>
+            <div class="card glass project-card">
+                <i class="fa-brands fa-youtube"></i>
+                <h4>YouTube Channel Analytics</h4>
+                <p>A data analysis project for our major, studying what separates the biggest YouTube channels from the rest: category, country or channel age.</p>
+                <div class="chips"><span>Excel</span><span>Data Cleaning</span><span>School Project</span></div>
             </div>
         </div>
     </section>
@@ -114,7 +171,7 @@
         <div class="cards">
             <div class="card glass contact-card">
                 <p>Have a project in mind? Let's talk.</p>
-                <a href="mailto:guiralleorenzo312@gmail.com" class="btn">Hire me</a>
+                <a href="#" class="btn hire-btn">Hire me</a>
                 <p class="email-text">guiralleorenzo312@gmail.com</p>
             </div>
         </div>
@@ -123,6 +180,28 @@
     <footer>
         <p>&copy; 2026 Leorenzo Guiral</p>
     </footer>
+
+    <div class="modal" id="hire-modal" aria-hidden="true">
+        <div class="modal-box glass">
+            <button class="modal-close" id="modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Let's work <span>together</span></h2>
+            <p class="modal-sub">Fill this in and I'll prepare the email for you.</p>
+            <form id="hire-form">
+                <input type="text" id="f-name" placeholder="Your name" required>
+                <input type="email" id="f-email" placeholder="Your email" required>
+                <select id="f-service">
+                    <option>Web Development</option>
+                    <option>Data Analysis</option>
+                    <option>Video Editing</option>
+                    <option>Music Production</option>
+                    <option>Something else</option>
+                </select>
+                <textarea id="f-message" rows="5" placeholder="Tell me about your project" required></textarea>
+                <button type="submit" class="btn">Open in Gmail</button>
+                <a href="#" id="mail-app" class="alt-link">or use my default mail app</a>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
