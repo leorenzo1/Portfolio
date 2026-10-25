@@ -67,16 +67,58 @@ function buildEmail(){
     return { subject, body };
 }
 
-// opens a Gmail compose window with everything filled in
-form.onsubmit = e => {
+// paste your Formspree form link here, like "https://formspree.io/f/xxxxxxxx"
+// leave it empty and the form opens Gmail instead
+const FORMSPREE_URL = "https://formspree.io/f/xwllvdod";
+
+const sendBtn = document.getElementById("send-btn");
+const statusEl = document.getElementById("form-status");
+if(FORMSPREE_URL) sendBtn.textContent = "Send message";
+
+form.onsubmit = async e => {
     e.preventDefault();
     const { subject, body } = buildEmail();
-    const url = "https://mail.google.com/mail/?view=cm&fs=1&to=" + EMAIL +
-        "&su=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
-    window.open(url, "_blank");
-    closeModal();
-    form.reset();
+
+    // no Formspree link yet: open a Gmail compose window with everything filled in
+    if(!FORMSPREE_URL){
+        const url = "https://mail.google.com/mail/?view=cm&fs=1&to=" + EMAIL +
+            "&su=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(body);
+        window.open(url, "_blank");
+        closeModal();
+        form.reset();
+        return;
+    }
+
+    // honeypot: real people never fill this hidden field
+    if(document.getElementById("f-gotcha").value) return;
+
+    sendBtn.disabled = true;
+    sendBtn.textContent = "Sending...";
+    statusEl.textContent = "";
+
+    try{
+        const res = await fetch(FORMSPREE_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify({
+                name: document.getElementById("f-name").value.trim(),
+                email: document.getElementById("f-email").value.trim(),
+                service: document.getElementById("f-service").value,
+                message: document.getElementById("f-message").value.trim(),
+                _subject: subject
+            })
+        });
+        if(!res.ok) throw new Error("failed");
+        statusEl.textContent = "Thanks! Your message was sent. I'll get back to you soon.";
+        statusEl.className = "form-status ok";
+        form.reset();
+    } catch(err){
+        statusEl.textContent = "Something went wrong. Please try again or email me at " + EMAIL;
+        statusEl.className = "form-status error";
+    }
+    sendBtn.disabled = false;
+    sendBtn.textContent = "Send message";
 };
 
 // fallback: default mail app

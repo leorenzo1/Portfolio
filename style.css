@@ -482,3 +482,19 @@ footer{
     font-weight: 500;
     margin-bottom: 0.4rem;
 }
+
+/* FORM EXTRAS */
+.hp{
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+.form-status{
+    font-size: 1.4rem;
+    min-height: 2rem;
+}
+.form-status.ok{ color: var(--green); }
+.form-status.error{ color: #ff7a7a; }
+#send-btn:disabled{ opacity: 0.6; cursor: wait; }

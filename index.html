@@ -159,9 +159,11 @@
     <section id="certificates">
         <h2 class="heading"><span>Certificates</span></h2>
         <div class="cards">
-            <div class="card glass placeholder">
-                <i class="fa-solid fa-pen"></i>
-                <p>Add your certificates here.</p>
+            <div class="card glass">
+                <i class="fa-solid fa-certificate"></i>
+                <h4>Employability Skills &ndash; Job Ready (Basic)</h4>
+                <p class="school">Wadhwani Foundation</p>
+                <p>March 2025</p>
             </div>
         </div>
     </section>
@@ -197,7 +199,9 @@
                     <option>Something else</option>
                 </select>
                 <textarea id="f-message" rows="5" placeholder="Tell me about your project" required></textarea>
-                <button type="submit" class="btn">Open in Gmail</button>
+                <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off" class="hp">
+                <button type="submit" class="btn" id="send-btn">Open in Gmail</button>
+                <p id="form-status" class="form-status"></p>
                 <a href="#" id="mail-app" class="alt-link">or use my default mail app</a>
             </form>
         </div>
