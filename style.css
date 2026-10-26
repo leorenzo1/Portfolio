@@ -498,3 +498,15 @@ footer{
 .form-status.ok{ color: var(--green); }
 .form-status.error{ color: #ff7a7a; }
 #send-btn:disabled{ opacity: 0.6; cursor: wait; }
+
+.project-links{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+}
+.project-card .project-links .btn-outline i{
+    font-size: 1.5rem;
+    margin: 0 0.6rem 0 0;
+    color: inherit;
+}
